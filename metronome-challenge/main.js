@@ -1,4 +1,4 @@
-function metronome() {
+(function () {
     const label = document.getElementsByTagName('label')[0];
     const slider = document.getElementById('slider');
     const startBtn = document.getElementById('start');
@@ -83,4 +83,4 @@ function metronome() {
         container.appendChild(trapezoid);
         container.appendChild(pendulum);
     }
-}
+})();

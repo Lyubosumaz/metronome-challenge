@@ -6,6 +6,31 @@
     display: none;
 }
 
+/* .container {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    background-color: #d3d3d3;
+}
+
+.trapezoid {
+    height: 5%;
+    width: 25%;
+    border-bottom: 360px solid #8B4513;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+}
+
+.pendulum {
+    position: absolute;
+    transform-origin: bottom center;
+    height: 260px;
+    width: 10px;
+    top: 40px;
+    left: 195px;
+    background: #000000;
+} */
+
 @keyframes moveIt {
     0%, 100% {
         transform: rotateZ(45deg);
