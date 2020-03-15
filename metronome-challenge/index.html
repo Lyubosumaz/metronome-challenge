@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Metronome</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-</head>
-
-<body>
-    <div id="root">
-        <label>Weight slider (between 40 BPM and 218 BPM):</label>
-        <br>
-        <input type="range" id="slider" class="slider" min="40" max="218" value="100">
-        <button id="start">Start</button>
-        <button id="stop" class="hidden">Stop</button>
-    </div>
-    <script src='main.js'></script>
-</body>
-
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Metronome</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    </head>
+    
+    <body>
+        <div class="root">
+            <label>Weight slider (between 40 BPM and 218 BPM):</label>
+            <div class="container">
+                <div>
+                    <input type="range" class="pendulum" min="40" max="218" value="100">
+                    <button class="btn-start">Start</button>
+                    <button class="btn-stop hidden">Stop</button>
+                </div>
+                <div>
+                    <div class="trapezoid"></div>
+                </div>
+            </div>
+        </div>
+        <script src='main.js'></script>
+    </body>
 </html>
