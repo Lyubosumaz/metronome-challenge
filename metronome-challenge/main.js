@@ -6,8 +6,9 @@
 
     startBtn.addEventListener('click', startMetronome);
     stopBtn.addEventListener('click', stopMetronome);
+    pendulum.addEventListener('mousemove', inputValue);
     let interval;
-    let pendulumDirection = 'left';
+
     /**
      * Main logic
      */
@@ -16,20 +17,16 @@
         stopBtn.classList.remove('hidden');
         pendulum.disabled = true;
 
-        label.textContent = `Weight slider ${pendulum.value} BPM:`;
+        console.log(pendulum.nodeValue)
 
         const sound = new Audio('./sound/metronome.wav');
         const milliseconds = calculateBPM(pendulum.value);
 
-        pendulum.style.setProperty('--milliseconds', `${(milliseconds / 1000)*2}s`);
+        if (!pendulum.classList.contains('run-animation')) {
+            pendulum.classList.add('run-animation');
+            pendulum.style.setProperty('--seconds', `${(milliseconds / 1000) * 2}s`);
+        }
         interval = setInterval(() => {
-            // if (pendulumDirection === 'left') {
-            //     pendulum.style.setProperty('--direction', 'moveItLeft');
-            //     pendulumDirection = 'right';
-            // } else {
-            //     pendulum.style.setProperty('--direction', 'moveItRight');
-            //     pendulumDirection = 'left';
-            // }
             sound.currentTime = 0;
             sound.play();
         }, milliseconds);
@@ -45,7 +42,8 @@
 
         label.textContent = `Weight slider (between 40 BPM and 218 BPM):`;
 
-        pendulum.style.setProperty('--milliseconds', '0s');
+        pendulum.style.setProperty('--seconds', '0s');
+        pendulum.classList.remove('run-animation');
         clearInterval(interval);
     }
 
@@ -56,5 +54,13 @@
      */
     function calculateBPM(sliderValue) {
         return 60000 / Number(sliderValue);
+    }
+
+    /**
+     * SSet the label textContent
+     * @param {HTMLElement} event 
+     */
+    function inputValue(event) {
+        label.textContent = `Weight slider ${event.target.value} BPM:`;
     }
 })();
