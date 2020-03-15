@@ -17,8 +17,6 @@
         stopBtn.classList.remove('hidden');
         pendulum.disabled = true;
 
-        console.log(pendulum.nodeValue)
-
         const sound = new Audio('./sound/metronome.wav');
         const milliseconds = calculateBPM(pendulum.value);
 
